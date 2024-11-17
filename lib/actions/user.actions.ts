@@ -36,7 +36,7 @@ export const signIn = async ({ email, password }: signInProps) => {
   try {
     const { account } = await createAdminClient();
     const session = await account.createEmailPasswordSession(email, password);
-
+ 
     cookies().set("appwrite-session", session.secret, {
       path: "/",
       httpOnly: true,
@@ -135,13 +135,17 @@ export const createLinkToken = async (user: User) => {
   try {
     const tokenParams = {
       user: {
-        client_user_id: user.$id
+        client_user_id: user.$id,
       },
       client_name: `${user.firstName} ${user.lastName}`,
-      products: ['auth'] as Products[],
-      language: 'en',
-      country_codes: ['US'] as CountryCode[],
-    }
+
+      products: ["auth","transactions"] as Products[],
+
+      language: "en",
+
+      country_codes: ["US"] as CountryCode[],
+    };
+ 
 
     const response = await plaidClient.linkTokenCreate(tokenParams);
 
@@ -246,7 +250,7 @@ export const exchangePublicToken = async ({
 
 export const getBanks = async ({ userId }: getBanksProps) => {
   try {
-    const { database } = await createAdminClient();
+     const { database } = await createAdminClient();
 
     const banks = await database.listDocuments(
       DATABASE_ID!,

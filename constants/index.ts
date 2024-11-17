@@ -19,6 +19,11 @@ export const sidebarLinks = [
     route: "/payment-transfer",
     label: "Transfer Funds",
   },
+  {
+    imgURL: "/icons/profile.svg",
+    route: "/profile",
+    label: "Profile",
+  },
 ];
 
 // good_user / good_password - Bank of America
@@ -31,7 +36,6 @@ export const TEST_USER_ID = "6627ed3d00267aa6fa3e";
 // custom_user -> Chase Bank
 export const TEST_ACCESS_TOKEN =
   "access-sandbox-229476cf-25bc-46d2-9ed5-fba9df7a5d63";
-
 export const ITEMS = [
   {
     id: "6624c02e00367128945e", // appwrite item Id
@@ -126,6 +130,12 @@ export const transactionCategoryStyles = {
     borderColor: "border-[#12B76A]",
     backgroundColor: "bg-[#12B76A]",
     textColor: "text-[#027A48]",
+    chipBackgroundColor: "bg-[#ECFDF3]",
+  },
+  Travel: {
+    borderColor: "border-[#0047AB]",
+    backgroundColor:  "bg-blue-500",
+    textColor: "text-blue-700",
     chipBackgroundColor: "bg-[#ECFDF3]",
   },
   default: {

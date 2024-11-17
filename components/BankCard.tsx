@@ -2,15 +2,17 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { formatAmount } from '@/lib/utils'
+import Copy from './Copy'
 const BankCard = ({account,userName,showBalance = true} : CreditCardProps) => {
+    console.log(account)
   return (
     <div className='flex flex-col'>
-        <Link href="/" className='bank-card'
+        <Link href={`/transaction-history/?id=${account?.appwriteItemId}`} className='bank-card min-w-[325px]'
         >
             <div className='bank-card_content'>
                 <div>
                     <h1 className='text-16 font-semibold text-white'>
-                        {userName}
+                        {account?.name}
                     </h1>
                     <p className='font-ibm-plex-serif font-back text-black'>
                         {formatAmount(account.currentBalance)}
@@ -20,7 +22,7 @@ const BankCard = ({account,userName,showBalance = true} : CreditCardProps) => {
                 <article className='flex flex-col '>
                     <div className='flex justify-between'>
                         <h1 className='text-12 font-semibold text-white'>
-                            {userName}
+                        {userName}
                         </h1>
 
                         <h2 className='text-12 font-semibold text-white'>
@@ -30,7 +32,7 @@ const BankCard = ({account,userName,showBalance = true} : CreditCardProps) => {
                         <div>
                         <p className='text-14 font-semibold tracking-[1.1px] text-white'>
                         ●●●● ●●●● ●●●●
-                            <span className='text-16 ml-1.5'>1234</span>
+                            <span className='text-16 ml-1.5'>{account?.mask}</span>
                         </p>
                     </div>
                 </article>
@@ -58,6 +60,10 @@ const BankCard = ({account,userName,showBalance = true} : CreditCardProps) => {
                 className='absolute top-0 left-0'
             />
         </Link>
+
+        {showBalance && 
+            <Copy title={account?.sharaebleId} />
+        }
     </div>
   )
 }
