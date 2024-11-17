@@ -54,7 +54,7 @@ const Profile = async () => {
               />
         </div>
         <h2 className='header-2 m-10'>Top Categories</h2>
-        <div className='flex flex-col gap-3 max-w-[50%] px-6'>
+        <div className='flex flex-col gap-3 max-w-full px-6'>
           {categories.map((category , index) => (
             <Category key = {category.name} category={category} />
           ))}
