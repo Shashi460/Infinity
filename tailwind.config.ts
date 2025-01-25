@@ -23,6 +23,7 @@ const config = {
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
         },
+        
         bankGradient: "#0179FE",
         indigo: {
           500: "#6172F3",
@@ -96,10 +97,16 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        'bubble-move': {
+          '0%': { transform: 'rotate(0deg) translate(30px) rotate(0deg)' },
+          '50%': { transform: 'rotate(180deg) translate(30px) rotate(-180deg)' },
+          '100%': { transform: 'rotate(360deg) translate(30px) rotate(-360deg)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        bubble: 'bubble-move 2s infinite',
       },
     },
   },
