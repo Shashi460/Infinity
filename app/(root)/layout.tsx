@@ -3,7 +3,7 @@ import Sidebar from "@/components/Sidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
+import { Analytics } from '@vercel/analytics/next';
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +25,7 @@ export default async function RootLayout({
           </div>
         </div>
         {children}
+        <Analytics />
       </div>
     </main>
   );
